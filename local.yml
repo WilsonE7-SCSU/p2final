@@ -123,6 +123,10 @@
       ansible.builtin.file:
         path: /etc/sudoers.d/90-course-nopasswd
         state: absent
+    - name: Remove second instance of passwordless sudo rule
+      ansible.builtin.file:
+        path: /etc/sudoers.d/90-cloud-init-users
+        state: absent
     # TODO: Remove the unexpected SUID-root binary
     #   (module: ansible.builtin.file  state: absent  — or fix the mode)
     - name: Remove SUID bit from diagtool
