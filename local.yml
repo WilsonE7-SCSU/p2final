@@ -75,6 +75,7 @@
         name: nclistener
         state: stopped
         enabled: false
+      when: "'nclistener.service' in ansible_facts.services"
     - name: Remove nclistener service file
       ansible.builtin.file:
         path: /etc/systemd/system/nclistener.service
